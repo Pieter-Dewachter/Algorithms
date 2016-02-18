@@ -85,10 +85,11 @@ public class Snake {
 	public void updateSnake(int oldX, int oldY) {
 		if(head.x == food.x && head.y == food.y) {
 			foodCollected = 1;
-			food.x = (int) (1+Math.random()*(columns-2));
 			do {
-				food.y = (int) (1+Math.random()*(rows-2));
-			} while(snake.contains(new Coords<Integer, Integer>(food.x, food.y)) || food.equals(new Coords<Integer, Integer>(oldX, oldY)));
+				food.x = (int) (1+Math.random()*(columns-3));
+				food.y = (int) (1+Math.random()*(rows-3));
+			} while(snake.contains(new Coords<Integer, Integer>(food.x, food.y))
+					|| (Math.abs(head.x-food.x) < 2 && Math.abs(head.y-food.y) < 2));
 			maze[food.y][food.x] = foodSign;
 		}
 		else if(snake.contains(new Coords<Integer, Integer>(head.x, head.y))) {
@@ -184,7 +185,6 @@ public class Snake {
 		
 		System.out.println("*** Snake ***");
 		System.out.println("Use the zqsd to move the snake");
-		System.out.println("Press x to stop the game");
 		System.out.print(game.toString());
 		
 		while(true) {
