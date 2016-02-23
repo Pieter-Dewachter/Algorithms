@@ -22,14 +22,18 @@ public class List<E> {
 		size++;
 	}
 	
-	public void prepend(List<E> list) {
+	public List<E> prepend(List<E> list) {
 		size += list.size;
-		Node<E> cursor = list.head();
-		while(cursor.next() != null) {
-			cursor = cursor.next();
-		}
-		cursor.setNext(head);
+		last(list.head).setNext(head);
 		head = list.head();
+		
+		return this;
+	}
+	
+	private Node<E> last(Node<E> cursor) {
+		if(cursor.next() == null)
+			return cursor;
+		return last(cursor.next());
 	}
 	
 	public boolean contains(E element) {
