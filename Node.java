@@ -31,7 +31,7 @@ public class Node<E> {
 	
 	public boolean equals(Object obj) {
 		if(obj instanceof Node<?>) {
-			Node<E> that = (Node<E>) obj;
+			Node<?> that = (Node<?>) obj;
 			return (this.element == that.element)
 					&& (this.next == that.next);
 		}
