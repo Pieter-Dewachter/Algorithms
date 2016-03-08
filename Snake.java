@@ -12,10 +12,10 @@ public class Snake {
 	
 	private int maze[][] = new int[rows][columns];
 	
-	private Coords<Integer, Integer> head = new Coords<Integer, Integer>(rows/2, columns/2);
-	private List<Coords<Integer, Integer>> snake = new List<Coords<Integer, Integer>>(head);
+	private Coords head = new Coords(rows/2, columns/2);
+	private List<Coords> snake = new List<Coords>(head);
 	
-	private Coords<Integer, Integer> food = new Coords<Integer, Integer>(1, 1);
+	private Coords food = new Coords(1, 1);
 	
 	public Snake() {
 		maze[head.y][head.x] = 2;
@@ -25,7 +25,7 @@ public class Snake {
 	public void left() {
 		if(head.x > 1) {
 			head.x--;
-			if(head.x.equals(snake.head().get().x) && head.y.equals(snake.head().get().y)) {
+			if(head.x == snake.head().get().x && head.y == snake.head().get().y) {
 				updateSnake(snake.head().get().x+1, head.y);
 			}
 			else {
@@ -40,7 +40,7 @@ public class Snake {
 	public void right() {
 		if(head.x < columns-2) {
 			head.x++;
-			if(head.x.equals(snake.head().get().x) && head.y.equals(snake.head().get().y)) {
+			if(head.x == snake.head().get().x && head.y == snake.head().get().y) {
 				updateSnake(snake.head().get().x-1, head.y);
 			}
 			else {
@@ -55,7 +55,7 @@ public class Snake {
 	public void up() {
 		if(head.y > 1) {
 			head.y--;
-			if(head.x.equals(snake.head().get().x) && head.y.equals(snake.head().get().y)) {
+			if(head.x == snake.head().get().x && head.y == snake.head().get().y) {
 				updateSnake(snake.head().get().x, head.y+1);
 			}
 			else {
@@ -70,7 +70,7 @@ public class Snake {
 	public void down() {
 		if(head.y < rows-2) {
 			head.y++;
-			if(head.x.equals(snake.head().get().x) && head.y.equals(snake.head().get().y)) {
+			if(head.x == snake.head().get().x && head.y == snake.head().get().y) {
 				updateSnake(snake.head().get().x, head.y-1);
 			}
 			else {
@@ -88,15 +88,15 @@ public class Snake {
 			do {
 				food.x = (int) (1+Math.random()*(columns-3));
 				food.y = (int) (1+Math.random()*(rows-3));
-			} while(snake.contains(new Coords<Integer, Integer>(food.x, food.y))
+			} while(snake.contains(new Coords(food.x, food.y))
 					|| (Math.abs(head.x-food.x) < 2 && Math.abs(head.y-food.y) < 2));
 			maze[food.y][food.x] = foodSign;
 		}
-		else if(snake.contains(new Coords<Integer, Integer>(head.x, head.y))) {
+		else if(snake.contains(new Coords(head.x, head.y))) {
 			death("you hit yourself!");
 			return;
 		}
-		Node<Coords<Integer, Integer>> cursor = snake.head();
+		Node<Coords> cursor = snake.head();
 		if(foodCollected == 0) {
 			maze[oldY][oldX] = emptySign;
 		}
@@ -105,7 +105,7 @@ public class Snake {
 			foodCollected++;
 		}
 		else if(foodCollected == 2) {
-			snake.prepend(new Node<Coords<Integer, Integer>>(new Coords<Integer, Integer>(oldX, oldY)));
+			snake.prepend(new Node<Coords>(new Coords(oldX, oldY)));
 			maze[oldY][oldX] = bodySign;
 			foodCollected = 0;
 		}
@@ -114,7 +114,7 @@ public class Snake {
 			cursor = cursor.next();
 			maze[cursor.get().y][cursor.get().x] = bodySign;
 		}
-		Coords<Integer, Integer> newCoords = new Coords<Integer, Integer>(head.x, head.y);
+		Coords newCoords = new Coords(head.x, head.y);
 		maze[head.y][head.x] = headSign;
 		cursor.set(newCoords);
 	}
