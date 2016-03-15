@@ -4,6 +4,11 @@ public class List<E> {
 	private Node<E> head;
 	private int size = 1;
 	
+	List(){
+		head = null;
+		size = 0;
+	}
+	
 	List(E element) {
 		head = new Node<E>(element);
 	}
@@ -34,6 +39,13 @@ public class List<E> {
 		if(cursor.next() == null)
 			return cursor;
 		return last(cursor.next());
+	}
+	
+	public Node<E> removeHead(){
+		Node <E> oldHead = head;
+		head = head.next();
+		size--;
+		return oldHead;
 	}
 	
 	public boolean contains(E element) {
