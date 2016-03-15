@@ -121,6 +121,11 @@ public class DynamicArray<E> implements IndexList<E>, Iterable<E> {
 		 */
 		public E next() {
 			return elements[index++];
+			
+			// Basically the same as writing:
+			// E element = elements[index];
+			// index++;
+			// return element;
 		}
 	}
 }
