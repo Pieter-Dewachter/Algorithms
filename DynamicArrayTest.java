@@ -5,12 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ArrayListTest {
-	ArrayList<String> list; 
+public class DynamicArrayTest {
+	DynamicArray<String> list; 
 	
 	@Before
 	public void setUp() throws Exception {
-		list = new ArrayList<String>();
+		list = new DynamicArray<String>();
 	}
 
 	@Test

@@ -2,7 +2,7 @@ package algorithms;
 
 import java.util.Iterator;
 
-public class ArrayList<E> implements IndexList<E>, Iterable<E> {
+public class DynamicArray<E> implements IndexList<E>, Iterable<E> {
 	private int size = 0;
 	private E[] elements;
 	private int capacity;
@@ -11,7 +11,7 @@ public class ArrayList<E> implements IndexList<E>, Iterable<E> {
 	 * Constructs a dynamic array with an initialCapacity
 	 * @param initialCapacity
 	 */
-	public ArrayList(int initialCapacity) {
+	public DynamicArray(int initialCapacity) {
 		capacity = initialCapacity;
 		@SuppressWarnings("unchecked")
 		E[] temp = (E[]) new Object[capacity];
@@ -21,7 +21,7 @@ public class ArrayList<E> implements IndexList<E>, Iterable<E> {
 	/**
 	 * Constructs a dynamic array with an initial capacity of 2
 	 */
-	public ArrayList() {
+	public DynamicArray() {
 		this(2);
 	}
 
