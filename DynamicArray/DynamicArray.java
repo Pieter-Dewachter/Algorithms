@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.DynamicArray;
 
 import java.util.Iterator;
 
@@ -9,7 +9,7 @@ public class DynamicArray<E> implements IndexList<E>, Iterable<E> {
 
 	/**
 	 * Constructs a dynamic array with an initialCapacity
-	 * @param initialCapacity
+	 * @param initialCapacity the initial capacity
 	 */
 	public DynamicArray(int initialCapacity) {
 		capacity = initialCapacity;
@@ -54,7 +54,7 @@ public class DynamicArray<E> implements IndexList<E>, Iterable<E> {
 	
 	/**
 	 * Indicates how many times the capacity of the array must be double given the index
-	 * @param index
+	 * @param index the index
 	 * @return 0 if it should not be doubled, >1 if more
 	 */
 	private int capacityCheck(int index){
@@ -68,16 +68,14 @@ public class DynamicArray<E> implements IndexList<E>, Iterable<E> {
 	
 	/**
 	 * Doubles the array a given times
-	 * @param times
+	 * @param times how many times it needs to be doubled
 	 */
 	private void doubleArray(int times) {
 		capacity = 2 * times * capacity ;
 		@SuppressWarnings("unchecked")
 		E[] temp = (E[]) new Object[capacity];
 
-		for (int i = 0; i < size; i++) {
-			temp[i] = elements[i];
-		}
+		System.arraycopy(elements, 0, temp, 0, size);
 		elements = temp;
 	}
 

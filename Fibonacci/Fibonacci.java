@@ -1,5 +1,4 @@
-package algorithms;
-
+package algorithms.Fibonacci;
 import java.util.Arrays;
 
 /**

@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.PositionalList;
 
 public interface Position<E> {
 	/**

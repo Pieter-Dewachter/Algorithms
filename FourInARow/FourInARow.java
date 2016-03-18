@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.FourInARow;
 
 import java.util.Scanner;
 
@@ -79,18 +79,17 @@ public class FourInARow {
 	
 	public int doWeHaveAWinner() {
 		// Horizontal
-		for (int row = 0; row < board.length; row++) {
+		for (int[] aBoard : board) {
 			int horizontalAmount = 1,
 					lastPlayer = 0;
-			for (int column = 0; column < board[row].length; column++) {
-				if (board[row][column] == lastPlayer
+			for (int anABoard : aBoard) {
+				if (anABoard == lastPlayer
 						&& lastPlayer != 0) {
 					horizontalAmount++;
 					if (horizontalAmount == 4)
 						return lastPlayer;
-				}
-				else {
-					lastPlayer = board[row][column];
+				} else {
+					lastPlayer = anABoard;
 					horizontalAmount = 1;
 				}
 			}
@@ -99,15 +98,14 @@ public class FourInARow {
 		for (int column = 0; column < board[0].length; column++) {
 			int verticalAmount = 1,
 					lastPlayer = 0;
-			for(int row = 0; row < board.length; row++) {
-				if (board[row][column] == lastPlayer
+			for (int[] aBoard : board) {
+				if (aBoard[column] == lastPlayer
 						&& lastPlayer != 0) {
 					verticalAmount++;
 					if (verticalAmount == 4)
 						return lastPlayer;
-				}
-				else {
-					lastPlayer = board[row][column];
+				} else {
+					lastPlayer = aBoard[column];
 					verticalAmount = 1;
 				}
 			}

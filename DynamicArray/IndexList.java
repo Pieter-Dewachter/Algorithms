@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.DynamicArray;
 
 public interface IndexList<E> {
 	
@@ -16,7 +16,7 @@ public interface IndexList<E> {
 	
 	/**
 	 * Sets the element at index
-	 * @param index
+	 * @param index the index
 	 * @param element to add
 	 * @return old element
 	 */
@@ -24,14 +24,14 @@ public interface IndexList<E> {
 	
 	/**
 	 * Returns the element at index
-	 * @param index
+	 * @param index the index
 	 * @return element at index
 	 */
 	E get(int index);
 	
 	/**
 	 * Removes the element at index
-	 * @param index
+	 * @param index the index
 	 * @return old element
 	 */
 	E remove(int index);

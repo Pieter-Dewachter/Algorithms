@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.Stack;
 
 import static org.junit.Assert.*;
 

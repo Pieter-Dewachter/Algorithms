@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.LinkedList;
 
 public class Node<E> {
 	private E element;

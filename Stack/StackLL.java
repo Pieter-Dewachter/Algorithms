@@ -1,4 +1,7 @@
-package algorithms;
+package algorithms.Stack;
+
+import algorithms.LinkedList.List;
+import algorithms.LinkedList.Node;
 
 public class StackLL<E> implements Stack<E> {
 	private List<E> list;

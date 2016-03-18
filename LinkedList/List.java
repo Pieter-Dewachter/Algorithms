@@ -1,15 +1,15 @@
-package algorithms;
+package algorithms.LinkedList;
 
 public class List<E> {
 	private Node<E> head;
 	private int size = 1;
 	
-	List(){
+	public List(){
 		head = null;
 		size = 0;
 	}
 	
-	List(E element) {
+	public List(E element) {
 		head = new Node<E>(element);
 	}
 	

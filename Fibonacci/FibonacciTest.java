@@ -1,11 +1,14 @@
-package algorithms;
-
-import static org.junit.Assert.*;
+package algorithms.Fibonacci;
 import org.junit.Test;
+import static junit.framework.TestCase.assertEquals;
 
 public class FibonacciTest {
-	final int result [] = {0, 1, 1, 2, 3, 5, 8, 13, 21};
-	
+	private final int[] result;
+
+	public FibonacciTest() {
+		result = new int[]{0, 1, 1, 2, 3, 5, 8, 13, 21};
+	}
+
 	@Test
 	public void testFib() {
 		for(int i = 0; i < result.length; i++) {

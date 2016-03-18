@@ -1,12 +1,9 @@
-package algorithms;
-
+package algorithms.LinkedList;
+import org.junit.*;
 import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class ListTest {
-	List<String> list;
+	private List<String> list;
 	
 	@Before
 	public void setUp() throws Exception {

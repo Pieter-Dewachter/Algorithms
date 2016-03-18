@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.PositionalList;
 
 import java.util.Iterator;
 
@@ -57,10 +57,11 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 	
 	/**
 	 * Helper method to convert a position to a node
-	 * @param p
+	 * @param p the position
 	 * @return the corresponding node
 	 * @throws IllegalArgumentException if p is not a valid position
 	 */
+	@SuppressWarnings("UnnecessaryLocalVariable")
 	private Node<E> validate(Position<E> p) throws IllegalArgumentException{
 		if(!(p instanceof Node)) throw new IllegalArgumentException("Invalid position");
 		Node<E> node = (Node<E>) p;
@@ -69,7 +70,7 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 	
 	/**
 	 * Helper method to convert a node into a position
-	 * @param node
+	 * @param node the node
 	 * @return the corresponding position
 	 */
 	private Position<E> position(Node<E> node){
@@ -134,7 +135,7 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 	
 	/**
 	 * Check if the position p has a next position
-	 * @param p
+	 * @param p the position
 	 * @return true if not the last position
 	 */
 	public boolean hasNext(Position<E> p){

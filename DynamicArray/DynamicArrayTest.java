@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.DynamicArray;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class DynamicArrayTest {
-	DynamicArray<String> list; 
+	private DynamicArray<String> list;
 	
 	@Before
 	public void setUp() throws Exception {

@@ -1,5 +1,5 @@
-package algorithms;
-
+package algorithms.Snake;
+import algorithms.LinkedList.*;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;

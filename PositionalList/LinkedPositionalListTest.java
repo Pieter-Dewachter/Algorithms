@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.PositionalList;
 
 import static org.junit.Assert.*;
 
