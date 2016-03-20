@@ -10,6 +10,8 @@ public class Card {
     }
 
     public int getWeight() {
+        if (number == 1)
+            return 14;
         return number;
     }
 
