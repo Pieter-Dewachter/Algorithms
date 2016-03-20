@@ -7,9 +7,7 @@ import static org.junit.Assert.*;
 public class ArrayQueueTest {
     private ArrayQueue<String> queue;
 
-    public ArrayQueueTest() {
-        queue = new ArrayQueue<String>(3);
-    }
+    public ArrayQueueTest() { queue = new ArrayQueue<String>(3); }
 
     @Test
     public void testEnqueue() throws Exception {
