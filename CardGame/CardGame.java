@@ -105,8 +105,8 @@ public class CardGame {
         System.out.println("Press q to quit, any other key for the next round");
 
         // Uncomment this, you'll see that the game has stabilized scores now
-        for(int i = 0; i < 1000000; i++)
-            game.nextRound();
+        // for(int i = 0; i < 1000000; i++)
+        //    game.nextRound();
 
         while(true) {
             String next = scanner.next();
