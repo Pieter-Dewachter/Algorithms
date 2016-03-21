@@ -38,14 +38,14 @@ public class CardGame {
         }
     }
 
-    private String giveCards(ArrayQueue<Card> lostPlayer, Card card1, Card card2) throws Exception {
+    private String giveCards(ArrayQueue<Card> wonPlayer, Card card1, Card card2) throws Exception {
         // First give all cards that are aside
         while (aside.size() != 0)
-            lostPlayer.enqueue(aside.dequeue());
+            wonPlayer.enqueue(aside.dequeue());
 
         // Now give the cards that are on the table
-        lostPlayer.enqueue(card1);
-        lostPlayer.enqueue(card2);
+        wonPlayer.enqueue(card1);
+        wonPlayer.enqueue(card2);
 
         // Add the new cards to the StringBuffer, and empty it afterwards
         buffer.append("Player 1: ");
