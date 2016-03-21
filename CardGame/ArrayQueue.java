@@ -11,6 +11,11 @@ public class ArrayQueue<E> implements Queue<E> {
         last = -1;
     }
 
+    /**
+     * Puts a new element at the end of the queue
+     * @param element The element to put in the queue
+     * @throws Exception When the queue is full
+     */
     public void enqueue(E element) throws Exception {
         if (size == array.length)
             throw new Exception("The queue is full");
@@ -24,6 +29,11 @@ public class ArrayQueue<E> implements Queue<E> {
         array[last] = element;
     }
 
+    /**
+     * Removes the first element of the queue and returns it
+     * @return The removed element from the queue
+     * @throws Exception When the queue is empty
+     */
     public E dequeue() throws Exception {
         if (size == 0)
             throw new Exception("The queue is empty");

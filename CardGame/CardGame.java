@@ -38,6 +38,15 @@ public class CardGame {
         }
     }
 
+    /**
+     * Give the cards in the aside queue and the ones on table to the winning player
+     * @param wonPlayer The player that won, and will thus receive the cards
+     * @param card1 The card of player 1 on the table
+     * @param card2 The card of player 2 on the table
+     * @return A string containing all cards of both players
+     * @throws Exception Caused by the enqueue method,
+     *                      can't occur due to this implementation
+     */
     private String giveCards(ArrayQueue<Card> wonPlayer, Card card1, Card card2) throws Exception {
         // First give all cards that are aside
         while (aside.size() != 0)
@@ -60,6 +69,14 @@ public class CardGame {
         return currentString;
     }
 
+    /**
+     * Initialize the next round, compare both cards and act accordingly
+     * Uses recursion when both cards are equally weighted
+     * @return Will eventually return what giveCards returns,
+     *          can be "delayed" due to the recursion
+     * @throws Exception Due to the enqueue and dequeue methods,
+     *          won't occur due to this implementation
+     */
     public String nextRound() throws Exception {
         // Each player puts a card on the table
         Card card1 = player1.dequeue();
@@ -98,13 +115,19 @@ public class CardGame {
         return "Card amounts: " + player1.size() + "  - " + player2.size() + "\n";
     }
 
+    /**
+     * THe main method which makes a new game and allows interaction
+     * @param args Needed for the user input
+     * @throws Exception Because of the CardGame constructor which uses enqueue methods,
+     *                      won't occur due to this implementation
+     */
     public static void main(String[] args) throws Exception {
         CardGame game   = new CardGame();
         Scanner scanner = new Scanner(System.in);
         System.out.println("******************* Card Game *******************");
         System.out.println("Press q to quit, any other key for the next round");
 
-        // Uncomment this, you'll see that the game has stabilized scores now
+        // Uncomment this to see the card amounts will eventually stabilize themselves
         // for(int i = 0; i < 1000000; i++)
         //    game.nextRound();
 
