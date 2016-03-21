@@ -67,7 +67,7 @@ public class CardGame {
 
         // Compare the cards and act accordingly
         if (card1.getWeight() != card2.getWeight()) {
-            if (card1.getWeight() > card2.getWeight())
+            if (card1.getWeight() < card2.getWeight())
                 return giveCards(player2, card1, card2);
             else
                 return giveCards(player1, card1, card2);
