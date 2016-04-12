@@ -21,7 +21,9 @@ public class Tree<E> {
      * @param parent The parent tree / node of this tree / node
      */
     public Tree(E data, Tree parent) {
-
+        this.data = data;
+        this.parent = parent;
+        parent.addChild(this);
     }
 
     /**
@@ -57,10 +59,13 @@ public class Tree<E> {
     }
 
     /**
-     * Adds a new direct child to this tree / node
+     * Adds a child to this tree / node
+     * Is triggered automatically when a node with parent is created, thus private
      * @param child The child you want to add
      */
-    public void addChild(Tree child) {
+    private void addChild(Tree child) {
+        if(children == null)
+            children = new ArrayList<Tree>();
         children.add(child);
     }
 }
