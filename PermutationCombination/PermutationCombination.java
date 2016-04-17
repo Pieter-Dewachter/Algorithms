@@ -99,14 +99,42 @@ public class PermutationCombination<E> {
     }
 
     /**
-     * Main method which outputs all permutations and combinations of ABCD, this is only a temporary implementation
+     * Main method which allows user input for calculating permutations and combinations
      */
     public static void main(String[] args) {
-        String[] test = { "A", "B", "C", "D" };
-        PermutationCombination inst = new PermutationCombination<String>(test);
-        System.out.println("Permutations:");
-        System.out.println(inst.permutations());
-        System.out.println("Combinations:");
-        System.out.println(inst.combinations(3));
+        Scanner scanner = new Scanner(System.in);
+        PermutationCombination instance = null;
+        boolean combination = false;
+        ArrayList<String> input = new ArrayList<String>();
+
+        System.out.println("-- Permutation and Combination calculator --");
+        System.out.println("  Enter as many elements as you wish, enter 'next' or 'n' when you are done");
+
+        while(true) {
+            String next = scanner.next();
+            if((next.equals("next") || next.equals("n")) && instance == null) {
+                instance = new PermutationCombination(input);
+                System.out.println("  Enter 'permutation' or 'p' to calculate the permutations");
+                System.out.println("  Enter 'combination' or 'c' to calculate the combinations");
+                System.out.println("  Enter 'quit' or 'q' when you are done");
+            }
+            else if((next.equals("permutation") || next.equals("p")) && instance != null) {
+                System.out.println(instance.permutations());
+            }
+            else if((next.equals("combination") || next.equals("c")) && instance != null) {
+                System.out.println("  Enter the length of the combinations you want");
+                combination = true;
+            }
+            else if(combination == true) {
+                System.out.println(instance.combinations(Integer.parseInt(next)));
+                combination = false;
+            }
+            else if((next.equals("quit") || next.equals("q")) && instance != null) {
+                System.exit(0);
+            }
+            else if(instance == null) {
+                input.add(next);
+            }
+        }
     }
 }
