@@ -4,6 +4,7 @@ import java.util.*;
 
 public class PermutationCombination<E> {
     private ArrayList<Tree> deepestChildren;
+    private int amount;
 
     /**
      * Constructor which takes the elements in a normal array
@@ -19,6 +20,7 @@ public class PermutationCombination<E> {
      */
     public PermutationCombination(ArrayList<E> arrayList) {
         deepestChildren = new ArrayList<Tree>();
+        amount = arrayList.size();
         Tree root = new Tree(null);
         this.assembleTree(arrayList, root);
     }
@@ -51,44 +53,60 @@ public class PermutationCombination<E> {
      * This method gives all permutations of the given elements in a String format
      * @return String with all permutations, each on a separate line
      */
-    public String permutations() {
+    public String permutations() { return combinations(amount); }
+
+    /**
+     * This method gives all combinations for a given length of the given elements
+     * If the given length equals the amount of elements, this will give the permutations
+     * @param length The length each combination must have, shorter than or equal to the amount of elements
+     * @return String with all combinations for the given length, each on a separate line
+     */
+    public String combinations(int length) {
+        // Making a StringBuilder with the combinations in it
         StringBuilder builder = new StringBuilder();
+
+        // To prevent duplicates, make an ArrayList with already done combinations
+        ArrayList<String> done = new ArrayList<String>();
 
         // Starting from the bottom of the tree and going up until the root is reached
         for(Tree element : deepestChildren) {
             Tree cursor = element;
 
-            builder.append(element.getData());
-            builder.append(" ");
+            // Starting from the bottom of the tree, so i must start from the maximum
+            int i = amount;
 
-            while(cursor.getParent().getData() != null) {
+            // Temporary StringBuilder, won't be added if it's a duplicate
+            StringBuilder temp = new StringBuilder();
+
+            while(cursor.getData() != null) {
+                // Making sure the length doesn't exceed the given value by the user
+                if(i <= length) {
+                    temp.append(cursor.getData());
+                    temp.append(" ");
+                }
                 cursor = cursor.getParent();
-                builder.append(cursor.getData());
-                builder.append(" ");
+                i--;
             }
 
-            builder.append("\n");
+            // Check if it's a duplicate, add only if it's not
+            if(!done.contains(temp.toString())) {
+                done.add(temp.toString());
+                builder.append(temp.toString());
+                builder.append("\n");
+            }
         }
         return builder.toString();
     }
 
     /**
-     * This method gives all combinations for a given length of the given elements
-     * @param length The length each combination must have, shorter than the amount of elements
-     * @return String with all combinations for the given length, each on a separate line
-     */
-    public String combinations(int length) {
-        // Not implemented yet
-        return "";
-    }
-
-    /**
-     * Main method which outputs all permutations of ABCD, this is only a temporary implementation
+     * Main method which outputs all permutations and combinations of ABCD, this is only a temporary implementation
      */
     public static void main(String[] args) {
         String[] test = { "A", "B", "C", "D" };
         PermutationCombination inst = new PermutationCombination<String>(test);
+        System.out.println("Permutations:");
         System.out.println(inst.permutations());
-        // System.out.println(inst.combinations(2));
+        System.out.println("Combinations:");
+        System.out.println(inst.combinations(3));
     }
 }
