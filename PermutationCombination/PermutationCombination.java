@@ -125,7 +125,7 @@ public class PermutationCombination<E> {
                 System.out.println("  Enter the length of the combinations you want");
                 combination = true;
             }
-            else if(combination == true) {
+            else if(combination) {
                 System.out.println(instance.combinations(Integer.parseInt(next)));
                 combination = false;
             }
