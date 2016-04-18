@@ -122,9 +122,8 @@ public class PermutationCombination<E> {
                 System.out.println("  Enter 'combination' or 'c' to calculate the combinations");
                 System.out.println("  Enter 'quit' or 'q' when you are done");
             }
-            else if((next.equals("permutation") || next.equals("p")) && instance != null) {
+            else if((next.equals("permutation") || next.equals("p")) && instance != null)
                 System.out.println(instance.permutations());
-            }
             else if((next.equals("combination") || next.equals("c")) && instance != null) {
                 System.out.println("  Enter the length of the combinations you want");
                 combination = true;
@@ -133,12 +132,10 @@ public class PermutationCombination<E> {
                 System.out.println(instance.combinations(Integer.parseInt(next)));
                 combination = false;
             }
-            else if((next.equals("quit") || next.equals("q")) && instance != null) {
+            else if((next.equals("quit") || next.equals("q")) && instance != null)
                 System.exit(0);
-            }
-            else if(instance == null) {
+            else if(instance == null)
                 input.add(next);
-            }
         }
     }
 }
