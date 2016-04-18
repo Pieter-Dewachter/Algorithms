@@ -35,7 +35,7 @@ public class PermutationCombination<E> {
         for(E element : arrayList) {
             Tree cursor = new Tree(element, root);
 
-            // Making a deep copy of the array list to make sure the original doesn't get lost
+            // Making a deep copy of the ArrayList to make sure the original doesn't get lost
             ArrayList<E> deepCopy = new ArrayList<E>();
             deepCopy.addAll(arrayList);
 
