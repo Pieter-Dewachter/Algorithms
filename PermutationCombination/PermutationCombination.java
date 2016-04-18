@@ -63,7 +63,7 @@ public class PermutationCombination<E> {
      */
     public String combinations(int length) {
         // Check for invalid length
-        if(length >= amount)
+        if(length > amount)
             return "Invalid length specified!";
 
         // Making a StringBuilder with the combinations in it
