@@ -62,6 +62,10 @@ public class PermutationCombination<E> {
      * @return String with all combinations for the given length, each on a separate line
      */
     public String combinations(int length) {
+        // Check for invalid length
+        if(length >= amount)
+            return "Invalid length specified!";
+
         // Making a StringBuilder with the combinations in it
         StringBuilder builder = new StringBuilder();
 
