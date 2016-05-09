@@ -157,7 +157,6 @@ public class HoehelKoarten {
 
         while(true) {
             String next = scanner.next();
-            System.out.println("State: " + state);
             if(next.equals("add") || next.equals("route")) {
                 System.out.println("  Enter the starting point");
                 method = next;
