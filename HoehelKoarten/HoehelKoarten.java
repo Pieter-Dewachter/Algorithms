@@ -90,7 +90,7 @@ public class HoehelKoarten {
                 if (accidents == 1)
                     weight += 30;
                 else
-                    weight = +50;
+                    weight += 50;
             }
         }
 
