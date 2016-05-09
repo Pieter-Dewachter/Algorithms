@@ -146,9 +146,6 @@ public class HoehelKoarten {
         kaart.addHighway("Luik", "Neufchateau", 110);
         kaart.addHighway("Neufchateau", "Aarlen", 37);
 
-        // kaart.addCars("Brugge", "Gent");
-        // System.out.println(kaart.calculateRoute("Brugge", "Neufchateau"));
-
         System.out.println("********************* Hoehel Maps *********************");
         System.out.println("Enter 'add' to add cars or 'route' to calculate a route");
         kaart.display();
